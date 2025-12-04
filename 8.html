@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .body {
+        background-color:black;
+      }
+      .calculator-button{
+        background-color: gray;
+        color: white;
+        font-size: 30px;
+        width: 80px;
+        height: 80px;
+        border: none;
+        margin: 5px;
+        border-radius: 50px;
+
+      }
+      .orange-button{
+        background-color: orange;
+        color: white;
+        font-size: 40px;
+        width: 80px;
+        height: 80px;
+        border: none;
+        margin: 5px;
+        border-radius: 50px;
+      }
+      .calculation{
+        font-size: 30px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <p class="js-calculation calculation"></p>
+    <p>
+      <button class="calculator-button" onclick="
+        updateCalcution ('1');
+        ">1</button>
+      <button class="calculator-button" onclick="
+      updateCalcution ('2');
+      ">2</button>
+      <button class="calculator-button" onclick="
+      updateCalcution('3');
+      ">3</button>
+      <button   class="orange-button" onclick="
+      updateCalcution('+');
+      ">+</button>
+    </p>
+    <p>
+      <button class="calculator-button" onclick="
+        updateCalcution('4');
+        ">4</button>
+      <button class="calculator-button" onclick="
+      updateCalcution('5');
+      ">5</button>
+      <button class="calculator-button" onclick="
+      updateCalcution ('6')"
+      >6</button>
+      <button class="orange-button" onclick="
+      updateCalcution('-')">-</button>
+    </p>
+    <p>
+      <button class="calculator-button" onclick="
+        updateCalcution('7')"
+        >7</button>
+      <button class="calculator-button" onclick="
+      updateCalcution('8')"
+      >8</button>
+      <button class="calculator-button" onclick="
+      updateCalcution ('9')">9</button>
+      <button class="orange-button" onclick="
+      updateCalcution ('*')"
+      >*</button>
+    </p>
+    <p>
+      <button class="calculator-button" onclick="
+        updateCalcution('0')"
+        >0</button>
+      <button class="calculator-button" onclick="
+      updateCalcution ('.')"
+      >.</button>
+      <button class="calculator-button "onclick="
+      calculation = eval (calculation);
+
+      displayCalculation();
+
+      localStorage.setItem('calculation',calculation)"
+      >=</button>
+      <button class="orange-button" onclick="
+      updateCalcution('/')">/</button>
+    </p>
+    <p>
+      <button class="calculator-button" onclick ="
+        calculation = '';
+
+        displayCalculation ()
+
+        localStorage.setItem('calculation', calculation); ">Clear</button>
+    </p>
+    <script>
+      let calculation = localStorage.getItem('calculation') || '';
+
+      displayCalculation();
+      function updateCalcution(value){
+        calculation += value;
+        displayCalculation();
+        localStorage.setItem('calculation',calculation);
+      }
+        function displayCalculation(){
+        document.querySelector('.js-calculation').innerHTML = calculation;
+      }
+    </script> 
+  </body>
+</html>
